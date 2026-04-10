@@ -1,0 +1,561 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 5%;
+  background: transparent;
+  z-index: 1000;
+  color: #ffffff;
+  transition: background-color 0.4s ease, padding 0.4s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 0.8rem 5%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.6rem;
+  letter-spacing: -0.5px;
+  text-decoration: none;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logoIcon {
+  color: #bfff07;
+}
+
+.desktopNav {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .desktopNav {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+}
+
+.navLinkWrapper {
+  position: relative;
+}
+
+.navLink {
+  position: relative;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: color 0.3s ease;
+  padding: 0.5rem 0;
+  letter-spacing: 0.5px;
+}
+
+@media (min-width: 1280px) {
+  .navLink {
+    font-size: 1.1rem;
+    gap: 0.5rem;
+  }
+}
+
+.navLink:hover, .dropdownWrapper:hover .navLink {
+  color: #bfff07;
+}
+
+
+.dropdownWrapper {
+  position: relative;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: -1rem;
+  background: rgba(10, 10, 10, 0.4);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  min-width: 220px;
+  padding: 0.5rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateY(15px);
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+}
+
+.dropdownWrapper:hover .dropdownMenu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.dropdownItem {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dropdownItem:hover {
+  background-color: rgba(191, 255, 7, 0.1);
+  color: #bfff07;
+}
+
+.ctaButton {
+  background: linear-gradient(120deg, transparent 50%, #bfff07 50%);
+  background-size: 250% 100%;
+  background-position: 100% 0;
+  color: #000000;
+  padding: 0.8rem 1.6rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border: 3px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.5px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  white-space: nowrap;
+}
+
+.ctaButton:hover {
+  background-position: 0 0;
+  color: #ffffff;
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 1024px) {
+  .ctaButton {
+    display: flex;
+  }
+}
+
+/* Mobile Menu Button */
+.mobileMenuBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.scrolled .mobileMenuBtn {
+  color: #ffffff;
+}
+
+.mobileMenuBtn:hover {
+  transform: scale(1.1);
+}
+
+@media (min-width: 1024px) {
+  .mobileMenuBtn {
+    display: none;
+  }
+}
+
+/* Mobile Overlay */
+.mobileMenuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mobileMenuOverlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Mobile Panel */
+.mobileMenuPanel {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 380px;
+  height: 100vh;
+  background: #000000;
+  z-index: 1000;
+  transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileMenuPanel.open {
+  right: 0;
+}
+
+.mobileMenuHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.mobileLogoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.mobileMenuHeader .logo {
+  color: #ffffff;
+}
+
+.mobileMenuHeader .mobileMenuBtn {
+  color: #ffffff;
+}
+
+.mobileNav {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mobileNavLink {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Specific styling for dropdown wrapper spacing in mobile */
+.mobileDropdownGroup {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  padding-bottom: 1rem;
+}
+
+.mobileDropdownList {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  gap: 1rem;
+  margin-top: 1rem;
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobileDropdownItem {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.mobileDropdownItem:hover {
+  color: #bfff07;
+}
+
+.mobileCtaWrapper {
+  padding: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: #000000;
+}
+
+.mobileCtaButton {
+  width: 100%;
+  background: linear-gradient(120deg, transparent 50%, #bfff07 50%);
+  background-size: 250% 100%;
+  background-position: 100% 0;
+  color: #000000;
+  padding: 1.2rem;
+  font-weight: 700;
+  font-size: 1rem;
+  border: 3px solid transparent;
+  border-radius: 4px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 1.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  white-space: nowrap;
+}
+
+.mobileCtaButton:hover {
+  background-position: 0 0;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+.languageSwitcher {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0 1.5rem;
+}
+
+.langBtn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 0.2rem;
+  text-transform: uppercase;
+}
+
+.langBtn.active {
+  color: #bfff07;
+}
+
+.langBtn:hover {
+  color: #ffffff;
+}
+
+.mobileLangSwitcher {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 1.5rem;
+}
+
+.ctaGroup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contactToggleBtn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contactToggleBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+  border-color: #bfff07;
+}
+
+/* Mobile Contact */
+.mobileContactInfo {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.flag {
+  font-size: 1.25rem;
+}
+
+.divider {
+  color: rgba(255, 255, 255, 0.1);
+}
+
+/* Contact Sidebar Panel */
+.contactOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  z-index: 1900;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease;
+}
+
+.contactOverlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.contactPanel {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 450px;
+  height: 100vh;
+  background: #0a0a0a;
+  z-index: 2000;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 3rem;
+  box-shadow: -20px 0 50px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contactPanel.open {
+  right: 0;
+}
+
+.contactPanelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.contactPanelHeader h3 {
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  color: #bfff07;
+}
+
+.contactPanelHeader button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.contactPanelHeader button:hover {
+  transform: rotate(90deg) scale(1.1);
+}
+
+.contactPanelContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.panelSection {
+  margin-bottom: 3.5rem;
+}
+
+.panelLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+}
+
+.panelContactItem {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.panelFlag {
+  font-size: 2.5rem;
+}
+
+.panelNumber {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.panelNumber:hover {
+  color: #bfff07;
+}
+
+.panelSeparator {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.05);
+  margin-bottom: 3.5rem;
+}
+
+.panelFooter {
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 3rem;
+}
+
+.panelFooter p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .contactPanel, .contactOverlay, .contactToggleBtn {
+     display: none;
+  }
+}

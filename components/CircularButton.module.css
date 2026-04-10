@@ -1,0 +1,66 @@
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.container:hover {
+  transform: scale(1.1);
+}
+
+.rotatingText {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: rotate 12s linear infinite;
+}
+
+.text {
+  fill: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  font-family: inherit;
+}
+
+.iconWrapper {
+  width: 38%;
+  height: 38%;
+  background: #bfff07;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  box-shadow: 0 0 20px rgba(191, 255, 7, 0.3);
+  z-index: 2;
+  transition: background-color 0.3s ease;
+}
+
+.container:hover .iconWrapper {
+  background-color: #ffffff;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 120px !important;
+    height: 120px !important;
+  }
+}

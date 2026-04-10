@@ -1,0 +1,381 @@
+.aboutSection {
+  position: relative;
+  width: 100%;
+  padding: 10rem 5%;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 5rem;
+  align-items: flex-start;
+}
+
+.topContent {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto 4rem;
+  position: relative;
+  z-index: 5;
+}
+
+/* Background Outlined Text */
+.bgTitle {
+  position: absolute;
+  top: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(5rem, 15vw, 12rem);
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1;
+  letter-spacing: 1rem;
+}
+
+/* Left Content */
+.leftColumn {
+  position: relative;
+  width: 100%;
+}
+
+.mainImageWrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.mainImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Play Button & Rotating Text */
+.playButtonContainer {
+  position: absolute;
+  top: 50%;
+  right: -90px;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.playButton {
+  width: 70px;
+  height: 70px;
+  background: #3b82f6; /* Blue as in the image */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 10;
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.playButton:hover {
+  transform: scale(1.1);
+  background: #2563eb;
+}
+
+/* Right Content */
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.subtitleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.line {
+  width: 60px;
+  height: 2px;
+  background: #bfff07;
+}
+
+.subtitle {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  font-weight: 800;
+  width: 100%;
+  letter-spacing: -1px;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 550px;
+}
+
+.ctaButtons {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 1rem;
+}
+
+.learnMoreBtn {
+  background: linear-gradient(120deg, transparent 50%, #bfff07 50%);
+  background-size: 250% 100%;
+  background-position: 100% 0;
+  color: #000000;
+  padding: 1.25rem 2.5rem;
+  border: 3px solid transparent;
+  font-weight: 700;
+  border-radius: 4px; /* matching navbar sm radius */
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.learnMoreBtn:hover {
+  background-position: 0 0;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.howItWorks {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.howItWorks:hover {
+  color: #bfff07;
+}
+
+/* Review Badge */
+.reviewBadge {
+  background: #bfff07;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: fit-content;
+  margin-top: 2rem;
+  box-shadow: 0 15px 30px rgba(191, 255, 7, 0.2);
+}
+
+.avatars {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #bfff07;
+  margin-left: -15px;
+  background: #222;
+}
+
+.avatar:first-child {
+  margin-left: 0;
+}
+
+.plusIcon {
+  width: 40px;
+  height: 40px;
+  background: #0c0c0c;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bfff07;
+  margin-left: -15px;
+  border: 2px solid #bfff07;
+}
+
+.statText {
+  color: #0c0c0c;
+  display: flex;
+  flex-direction: column;
+}
+
+.rating {
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+.label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+/* Secondary Image */
+.secondaryImageWrapper {
+  margin-top: 3rem;
+  width: 100%;
+  max-width: 400px;
+  align-self: flex-end;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.secondaryImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Animations */
+.rotatingText {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: rotate 15s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 8rem;
+  }
+  
+  .bgTitle {
+    font-size: 8rem;
+    top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutSection {
+    padding: 6rem 5%;
+  }
+  
+  .subtitle {
+    font-size: 2rem;
+  }
+  
+  .ctaButtons {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  
+  .learnMoreBtn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .secondaryImageWrapper {
+    align-self: center;
+    max-width: 100%;
+  }
+}
+.circularText {
+  fill: white;
+  font-size: 8.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: inherit;
+}
+
+/* Entry Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.bgTitle {
+  animation: fadeOnly 2s ease-out forwards;
+}
+
+.subtitleWrapper {
+  animation: fadeInLeft 1s ease-out forwards;
+}
+
+.leftColumn {
+  animation: fadeInLeft 1.2s ease-out forwards;
+}
+
+.description {
+  animation: fadeInUp 1s ease-out 0.3s forwards;
+  opacity: 0; /* start hidden */
+}
+
+.ctaButtons {
+  animation: fadeInUp 1s ease-out 0.5s forwards;
+  opacity: 0;
+}
+
+.reviewBadge {
+  animation: fadeInUp 1s ease-out 0.7s forwards;
+  opacity: 0;
+}
+
+.secondaryImageWrapper {
+  animation: fadeInRight 1.5s ease-out 0.9s forwards;
+  opacity: 0;
+}
+@keyframes fadeOnly {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
