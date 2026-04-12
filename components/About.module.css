@@ -1,7 +1,7 @@
 .aboutSection {
   position: relative;
   width: 100%;
-  padding: 10rem 5%;
+  padding: 4rem 5%;
   overflow: hidden;
   color: #ffffff;
 }
@@ -29,13 +29,12 @@
 /* Background Outlined Text */
 .bgTitle {
   position: absolute;
-  top: 5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: clamp(5rem, 15vw, 12rem);
-  font-weight: 900;
+  top: -2rem;
+  left: 5%;
+  font-size: clamp(5rem, 15vw, 12rem); /* Restored original size */
+  font-weight: 800;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
   white-space: nowrap;
   pointer-events: none;
   z-index: 1;
@@ -111,22 +110,23 @@
 .line {
   width: 60px;
   height: 2px;
-  background: #bfff07;
+  background: #29a5c0;
 }
 
 .subtitle {
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  line-height: 1.1;
-  font-weight: 800;
+  font-size: clamp(1.8rem, 4vw, 3rem); /* Restored original size */
+  line-height: 1.3;
+  margin-bottom: 2rem;
   width: 100%;
   letter-spacing: -1px;
 }
 
 .description {
-  font-size: 1.1rem;
+  font-size: 1.1rem; /* Restored original size */
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.7);
   max-width: 550px;
+  white-space: pre-wrap;
 }
 
 .ctaButtons {
@@ -137,7 +137,7 @@
 }
 
 .learnMoreBtn {
-  background: linear-gradient(120deg, transparent 50%, #bfff07 50%);
+  background: linear-gradient(120deg, transparent 50%, #29a5c0 50%);
   background-size: 250% 100%;
   background-position: 100% 0;
   color: #000000;
@@ -168,12 +168,12 @@
 }
 
 .howItWorks:hover {
-  color: #bfff07;
+  color: #29a5c0;
 }
 
 /* Review Badge */
 .reviewBadge {
-  background: #bfff07;
+  background: #29a5c0;
   padding: 1rem 2rem;
   border-radius: 20px;
   display: inline-flex;
@@ -181,7 +181,7 @@
   gap: 1.5rem;
   width: fit-content;
   margin-top: 2rem;
-  box-shadow: 0 15px 30px rgba(191, 255, 7, 0.2);
+  box-shadow: 0 15px 30px rgba(41, 165, 192, 0.2);
 }
 
 .avatars {
@@ -193,7 +193,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 2px solid #bfff07;
+  border: 2px solid #29a5c0;
   margin-left: -15px;
   background: #222;
 }
@@ -210,9 +210,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #bfff07;
+  color: #29a5c0;
   margin-left: -15px;
-  border: 2px solid #bfff07;
+  border: 2px solid #29a5c0;
 }
 
 .statText {
@@ -232,22 +232,7 @@
   opacity: 0.8;
 }
 
-/* Secondary Image */
-.secondaryImageWrapper {
-  margin-top: 3rem;
-  width: 100%;
-  max-width: 400px;
-  align-self: flex-end;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-}
 
-.secondaryImage {
-  width: 100%;
-  height: auto;
-  display: block;
-}
 
 /* Animations */
 .rotatingText {
@@ -278,7 +263,7 @@
 
 @media (max-width: 768px) {
   .aboutSection {
-    padding: 6rem 5%;
+    padding: 3rem 5%;
   }
   
   .subtitle {
@@ -295,11 +280,7 @@
     width: 100%;
     justify-content: center;
   }
-  
-  .secondaryImageWrapper {
-    align-self: center;
-    max-width: 100%;
-  }
+
 }
 .circularText {
   fill: white;
@@ -371,10 +352,6 @@
   opacity: 0;
 }
 
-.secondaryImageWrapper {
-  animation: fadeInRight 1.5s ease-out 0.9s forwards;
-  opacity: 0;
-}
 @keyframes fadeOnly {
   from { opacity: 0; }
   to { opacity: 1; }

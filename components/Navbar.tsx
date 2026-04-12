@@ -42,23 +42,15 @@ export default function Navbar() {
 
   const navItems = [
     { label: t("home"), href: "/" },
-    { label: t("about"), href: "/about" },
-    {
-      label: t("services"),
-      href: "/services",
-      children: [
-        { label: t("service_web"), href: "/services/web" },
-        { label: t("service_design"), href: "/services/design" },
-        { label: t("service_seo"), href: "/services/seo" },
-      ],
-    },
+    { label: t("about"), href: "/#about" },
+    { label: t("services"), href: "/#solutions" },
+    { label: t("Portfolio_Title"), href: "/#portfolio" },
     {
       label: t("pages"),
       href: "#",
       children: [
-        { label: t("page_team"), href: "/team" },
-        { label: t("page_careers"), href: "/careers" },
-        { label: t("page_faq"), href: "/faq" },
+        { label: "FAQ", href: "/#faq" },
+        { label: t("test_bg"), href: "/#testimonials" },
       ],
     },
     { label: t("contact"), href: "/contact" },
@@ -70,8 +62,7 @@ export default function Navbar() {
         {/* Logo */}
         <div className={styles.logoContainer}>
           <Link href="/" className={`${styles.logo} ${syne.className}`}>
-            <LayoutGrid size={24} className={styles.logoIcon} />
-            REBOOST
+            <img src="/logo.png" alt="Logo" style={{ height: '40px', width: 'auto' }} />
           </Link>
         </div>
 
@@ -163,8 +154,7 @@ export default function Navbar() {
       >
         <div className={styles.mobileMenuHeader}>
           <div className={styles.mobileLogoWrapper}>
-             <LayoutGrid size={24} className={styles.logoIcon} style={{ color: '#bfff07' }} />
-             <span className={`${styles.logo} ${syne.className}`}>REBOOST</span>
+             <img src="/logo.png" alt="Logo" style={{ height: '36px', width: 'auto' }} />
           </div>
           <button
             className={styles.mobileMenuBtn}

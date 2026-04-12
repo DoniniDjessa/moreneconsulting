@@ -34,8 +34,8 @@ export default function About() {
         <div className={styles.leftColumn}>
           <div className={styles.mainImageWrapper}>
             <Image 
-              src="/images/about_main.png" 
-              alt="Handshake" 
+              src="/morene.jpeg" 
+              alt="Morene" 
               width={600} 
               height={800} 
               className={styles.mainImage}
@@ -96,16 +96,7 @@ export default function About() {
             </div>
           </div>
 
-          {/* Secondary Image */}
-          <div className={styles.secondaryImageWrapper}>
-            <Image 
-              src="/images/about_secondary.png" 
-              alt="Team Collaboration" 
-              width={400} 
-              height={250} 
-              className={styles.secondaryImage}
-            />
-          </div>
+
         </div>
       </div>
 

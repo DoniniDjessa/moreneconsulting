@@ -32,13 +32,13 @@
 .iconWrapper {
   width: 38%;
   height: 38%;
-  background: #bfff07;
+  background: #29a5c0;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #000000;
-  box-shadow: 0 0 20px rgba(191, 255, 7, 0.3);
+  box-shadow: 0 0 20px rgba(41, 165, 192, 0.3);
   z-index: 2;
   transition: background-color 0.3s ease;
 }

@@ -1,0 +1,119 @@
+.section {
+  width: 100%;
+  padding: 10rem 5%;
+  background-color: #080808;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.readyText {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.tagline {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 500px;
+  line-height: 1.5;
+}
+
+.emailLink {
+  margin-top: 4rem;
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.emailLink:hover {
+  color: #29a5c0;
+  transform: translateX(10px);
+}
+
+.rightCol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Play/Rotating Button */
+.circularButton {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rotatingText {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: rotate 10s linear infinite;
+}
+
+.centerIcon {
+  width: 100px;
+  height: 100px;
+  background: #29a5c0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  box-shadow: 0 10px 30px rgba(41, 165, 192, 0.3);
+  transition: all 0.3s ease;
+}
+
+.circularButton:hover .centerIcon {
+  transform: scale(1.1) rotate(45deg);
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 8rem;
+  }
+  .leftCol {
+    align-items: center;
+  }
+  .tagline {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 6rem 5%;
+  }
+  .emailLink {
+    margin-top: 3rem;
+  }
+}

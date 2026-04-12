@@ -1,0 +1,133 @@
+.section {
+  width: 100%;
+  padding: 10rem 5%;
+  background-color: #0c0c0c;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bgTitle {
+  position: absolute;
+  top: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(3rem, 15vw, 15rem);
+  font-weight: 800;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.headerRow {
+  text-align: center;
+  margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.accentBar {
+  width: 100px;
+  height: 4px;
+  background-color: #29a5c0;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #ffffff;
+}
+
+/* Accordion */
+.accordion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.item {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.itemOpen {
+  border-color: rgba(41, 165, 192, 0.3);
+  background: rgba(41, 165, 192, 0.05);
+}
+
+.header {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  text-align: left;
+}
+
+.question {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.itemOpen .question {
+  color: #29a5c0;
+}
+
+.icon {
+  color: #29a5c0;
+  transition: transform 0.3s ease;
+}
+
+.itemOpen .icon {
+  transform: rotate(180deg);
+}
+
+.contentWrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.itemOpen .contentWrapper {
+  max-height: 300px;
+}
+
+.body {
+  padding: 0 2rem 2rem 2rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 6rem 5%;
+  }
+  .question {
+    font-size: 1.1rem;
+  }
+}

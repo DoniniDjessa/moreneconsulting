@@ -36,14 +36,14 @@
 }
 
 .logoIcon {
-  color: #bfff07;
+  color: #29a5c0;
 }
 
 .desktopNav {
   display: none;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .desktopNav {
     display: flex;
     align-items: center;
@@ -77,7 +77,7 @@
 }
 
 .navLink:hover, .dropdownWrapper:hover .navLink {
-  color: #bfff07;
+  color: #29a5c0;
 }
 
 
@@ -126,12 +126,12 @@
 }
 
 .dropdownItem:hover {
-  background-color: rgba(191, 255, 7, 0.1);
-  color: #bfff07;
+  background-color: rgba(41, 165, 192, 0.1);
+  color: #29a5c0;
 }
 
 .ctaButton {
-  background: linear-gradient(120deg, transparent 50%, #bfff07 50%);
+  background: linear-gradient(120deg, transparent 50%, #29a5c0 50%);
   background-size: 250% 100%;
   background-position: 100% 0;
   color: #000000;
@@ -157,7 +157,7 @@
   transform: translateY(-2px);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .ctaButton {
     display: flex;
   }
@@ -184,7 +184,7 @@
   transform: scale(1.1);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .mobileMenuBtn {
     display: none;
   }
@@ -305,7 +305,7 @@
 }
 
 .mobileDropdownItem:hover {
-  color: #bfff07;
+  color: #29a5c0;
 }
 
 .mobileCtaWrapper {
@@ -316,7 +316,7 @@
 
 .mobileCtaButton {
   width: 100%;
-  background: linear-gradient(120deg, transparent 50%, #bfff07 50%);
+  background: linear-gradient(120deg, transparent 50%, #29a5c0 50%);
   background-size: 250% 100%;
   background-position: 100% 0;
   color: #000000;
@@ -342,10 +342,16 @@
   border-color: #ffffff;
 }
 .languageSwitcher {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  margin: 0 1.5rem;
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .languageSwitcher {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin: 0 1.5rem;
+  }
 }
 
 .langBtn {
@@ -361,7 +367,7 @@
 }
 
 .langBtn.active {
-  color: #bfff07;
+  color: #29a5c0;
 }
 
 .langBtn:hover {
@@ -399,7 +405,7 @@
 .contactToggleBtn:hover {
   background: rgba(255, 255, 255, 0.1);
   transform: scale(1.05);
-  border-color: #bfff07;
+  border-color: #29a5c0;
 }
 
 /* Mobile Contact */
@@ -479,7 +485,7 @@
 .contactPanelHeader h3 {
   font-size: 1.5rem;
   letter-spacing: 3px;
-  color: #bfff07;
+  color: #29a5c0;
 }
 
 .contactPanelHeader button {
@@ -532,7 +538,7 @@
 }
 
 .panelNumber:hover {
-  color: #bfff07;
+  color: #29a5c0;
 }
 
 .panelSeparator {
@@ -554,7 +560,7 @@
   line-height: 1.8;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1279px) {
   .contactPanel, .contactOverlay, .contactToggleBtn {
      display: none;
   }

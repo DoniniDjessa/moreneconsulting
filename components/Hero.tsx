@@ -48,7 +48,7 @@ export default function Hero() {
 
         {/* Floating Social Sidebar (Simplified) */}
         <div className={styles.socialSidebar}>
-           <span className={styles.followText}>FOLLOW US</span>
+           <span className={styles.followText}>{t("hero_follow")}</span>
            <div className={styles.socialLine}></div>
            <div className={styles.socialIcons}>
               <span>FB</span>
@@ -61,16 +61,16 @@ export default function Hero() {
       {/* 3 Infinite Marquee Bars (Slanted Cross Effect) */}
       <div className={styles.marqueeWrapper}>
         <Marquee 
-          text={["Creative Strategy", "Digital Growth", "UI/UX Design", "Social Media"]}
+          text={t("hero_m1") as any}
           direction="left"
           speed="25s"
-          bgColor="#bfff07"
+          bgColor="#29a5c0"
           textColor="#000000"
           fontSize="1.5rem"
           className={styles.rotate30}
         />
         <Marquee 
-          text={["Google Ads", "Market Analysis", "Brand Identity", "SEO Expert"]}
+          text={t("hero_m2") as any}
           direction="right"
           speed="35s"
           bgColor="#ffffff"
@@ -79,7 +79,7 @@ export default function Hero() {
           className={styles.marqueeNormal}
         />
         <Marquee 
-          text={["Creative Solution", "Revenue Engine", "Scalability", "Success"]}
+          text={t("hero_m3") as any}
           direction="left"
           speed="20s"
           bgColor="linear-gradient(90deg, #8a2be2, #ff007f)"

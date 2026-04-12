@@ -1,0 +1,181 @@
+.section {
+  width: 100%;
+  padding: 10rem 5%;
+  background-color: #0a0a0a;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.bgTitle {
+  position: absolute;
+  top: 5rem;
+  left: 5%;
+  font-size: clamp(3rem, 10vw, 8rem);
+  font-weight: 800;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.headerRow {
+  margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.accentBar {
+  width: 80px;
+  height: 4px;
+  background-color: #29a5c0;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+.description {
+  max-width: 600px;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+}
+
+/* Grid Layout */
+.solutionsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(41, 165, 192, 0.3);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.cardHeader {
+  margin-bottom: 2.5rem;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  min-height: 3.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.cardSummary {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  min-height: 3rem;
+}
+
+.featuresList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 3rem;
+  flex-grow: 1;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center; /* Better alignment for small icons */
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.checkWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background-color: #29a5c0;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.checkIcon {
+  color: #000000; /* Black icon on blue background */
+}
+
+.ctaButton {
+  width: 100%;
+  padding: 1.2rem;
+  border-radius: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: linear-gradient(120deg, transparent 50%, #29a5c0 50%);
+  background-size: 250% 100%;
+  background-position: 100% 0;
+  color: #000000;
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover .ctaButton {
+  background-position: 0 0;
+  color: #ffffff;
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Featured Card Style (Optional 2nd card) */
+.cardPopular {
+  border-color: rgba(41, 165, 192, 0.5);
+  background: rgba(41, 165, 192, 0.05);
+}
+
+@media (max-width: 1400px) {
+  .solutionsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .solutionsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .section {
+    padding: 6rem 5%;
+  }
+}

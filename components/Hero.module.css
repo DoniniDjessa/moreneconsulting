@@ -8,12 +8,13 @@
   padding: 8rem 5% 0;
   overflow: visible;
   color: #ffffff;
-  margin-bottom: 35rem;
+  margin-bottom: 8rem;
 }
 
 @media (max-width: 768px) {
   .heroSection {
     padding: 3rem 5%;
+    margin-bottom: 3rem;
   }
 }
 
@@ -39,7 +40,7 @@
 .title {
   display: flex;
   flex-direction: column;
-  font-size: clamp(2rem, 6vw, 3.8rem);
+  font-size: clamp(2rem, 6vw, 3.8rem); /* Restored original size */
   line-height: 1.1;
   margin-bottom: 1.5rem;
   letter-spacing: -1.5px;
@@ -48,7 +49,7 @@
 }
 
 .subHeader {
-  font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+  font-size: clamp(1.1rem, 2.5vw, 1.8rem); /* Restored original size */
   color: rgba(255, 255, 255, 0.5);
   text-align: right;
   margin-bottom: 4rem;
@@ -104,7 +105,7 @@
 }
 
 .description {
-  font-size: 1.1rem;
+  font-size: 1.1rem; /* Restored original size */
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.7);
   max-width: 400px;
