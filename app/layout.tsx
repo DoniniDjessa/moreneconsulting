@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
+import ScrollToTop from "../components/ScrollToTop";
 import { LanguageProvider } from "../context/LanguageContext";
 
 const geistSans = Geist({
@@ -53,6 +54,7 @@ export default function RootLayout({
           <div className="global-grid-mask"></div>
           <Navbar />
           {children}
+          <ScrollToTop />
         </LanguageProvider>
       </body>
     </html>

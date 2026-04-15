@@ -1,0 +1,52 @@
+.scrollToTop {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scrollToTop.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.progressCircle {
+  width: 50px;
+  height: 50px;
+  background: rgba(41, 165, 192, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(41, 165, 192, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #29a5c0;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.scrollToTop:hover .progressCircle {
+  background: #29a5c0;
+  color: #000000;
+  transform: scale(1.1);
+  box-shadow: 0 15px 40px rgba(41, 165, 192, 0.4);
+}
+
+@media (max-width: 768px) {
+  .scrollToTop {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+  
+  .progressCircle {
+    width: 45px;
+    height: 45px;
+  }
+}

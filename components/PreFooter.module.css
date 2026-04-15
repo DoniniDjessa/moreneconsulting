@@ -1,7 +1,7 @@
 .section {
   width: 100%;
   padding: 10rem 5%;
-  background-color: #080808;
+  background-color: transparent;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
