@@ -19,6 +19,7 @@ const translations = {
     pages: "Pages",
     contact: "Contact",
     getStarted: "Commencer",
+    Portfolio: "Portfolio",
     // Hero
     hero_title: "Distinguez-vous. Développez-vous. Bâtissez un moteur de revenus durable.",
     hero_subtext: "Fondé par un ancien spécialiste Google Ads",
@@ -211,6 +212,7 @@ const translations = {
     pages: "Pages",
     contact: "Contact",
     getStarted: "Get Started",
+    Portfolio: "Portfolio",
     // Hero
     hero_title: "Stand Out. Scale Up. Build a Sustainable Revenue Engine.",
     hero_subtext: "Founded by a former Google Ads Specialist",

@@ -30,10 +30,10 @@ export default function Footer() {
           <div>
             <h4 className={`${styles.colTitle} ${syne.className}`}>{t("foo_links")}</h4>
             <div className={`${styles.linkList} ${poppins.className}`}>
-              <a href="#about" className={styles.link}>{t("Nav_About")}</a>
-              <a href="#portfolio" className={styles.link}>{t("Portfolio_Title")}</a>
+              <a href="#about" className={styles.link}>{t("about")}</a>
+              <a href="#portfolio" className={styles.link}>{t("Portfolio")}</a>
               <a href="#faq" className={styles.link}>{t("foo_faq")}</a>
-              <a href="#contact" className={styles.link}>{t("Nav_Contact")}</a>
+              <a href="#contact" className={styles.link}>{t("contact")}</a>
             </div>
           </div>
 
@@ -58,7 +58,7 @@ export default function Footer() {
               </div>
               <div className={styles.contactItem}>
                 <Mail size={18} className={styles.logoAccent} />
-                <span>contact@m-consulting.com</span>
+                <span>contact@moreneconsulting.com</span>
               </div>
               <div className={styles.contactItem}>
                 <MapPin size={18} className={styles.logoAccent} />

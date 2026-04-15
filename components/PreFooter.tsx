@@ -24,8 +24,8 @@ export default function PreFooter() {
           <p className={`${styles.tagline} ${poppins.className}`}>
             {t("prefoo_tagline")}
           </p>
-          <a href="mailto:hello@domainsite.com" className={`${styles.emailLink} ${syne.className}`}>
-            hello@domainsite.com
+          <a href="mailto:contact@moreneconsulting.com" className={`${styles.emailLink} ${syne.className}`}>
+            contact@moreneconsulting.com
           </a>
         </div>
 

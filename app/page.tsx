@@ -7,7 +7,7 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import Solutions from "@/components/Solutions";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
-import CTA from "@/components/CTA";
+// import CTA from "@/components/CTA";
 import PreFooter from "@/components/PreFooter";
 import Footer from "@/components/Footer";
 
@@ -23,7 +23,7 @@ export default function Home() {
       <Solutions />
       <Testimonials />
       <FAQ />
-      <CTA />
+      {/* <CTA /> */}
       <PreFooter />
       <Footer />
     </main>

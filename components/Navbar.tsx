@@ -44,11 +44,11 @@ export default function Navbar() {
     { label: t("home"), href: "/" },
     { label: t("about"), href: "/#about" },
     { label: t("services"), href: "/#solutions" },
-    { label: t("Portfolio_Title"), href: "/#portfolio" },
     {
       label: t("pages"),
       href: "#",
       children: [
+        { label: t("Portfolio"), href: "/#portfolio" },
         { label: "FAQ", href: "/#faq" },
         { label: t("test_bg"), href: "/#testimonials" },
       ],
