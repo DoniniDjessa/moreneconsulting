@@ -1,20 +1,106 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Syne, Poppins } from 'next/font/google';
 import CircularButton from './CircularButton';
-import Marquee from './Marquee';
 import { useLanguage } from '../context/LanguageContext';
 import styles from './Hero.module.css';
 
 const syne = Syne({ subsets: ['latin'], weight: ['800'] });
 const poppins = Poppins({ subsets: ['latin'], weight: ['400', '600'] });
 
+declare global {
+  interface Window {
+    VANTA: any;
+    THREE: any;
+  }
+}
+
 export default function Hero() {
   const { t } = useLanguage();
+  const vantaRef = useRef<HTMLDivElement>(null);
+  const [vantaEffect, setVantaEffect] = useState<any>(null);
+
+  useEffect(() => {
+    const loadScript = (src: string) => {
+      return new Promise((resolve, reject) => {
+        if (document.querySelector(`script[src="${src}"]`)) {
+           resolve(true);
+           return;
+        }
+        const script = document.createElement('script');
+        script.src = src;
+        script.async = true;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.appendChild(script);
+      });
+    };
+
+    const initVanta = async () => {
+      try {
+        if (!window.THREE) {
+          await loadScript('https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js');
+        }
+        await loadScript('https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.halo.min.js');
+        
+        if (vantaRef.current && !vantaEffect && window.VANTA?.HALO) {
+          // Detect mobile for size adjustment
+          const isMobile = window.innerWidth <= 768;
+          
+          const effect = window.VANTA.HALO({
+            el: vantaRef.current,
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            // Centering and Sizing
+            xOffset: 0,
+            yOffset: 0,
+            size: isMobile ? 0.7 : 1.5, // Further reduced size on mobile
+            backgroundColor: 0x06000f,
+            amplitudeFactor: isMobile ? 0.6 : 1.5, // Further reduced amplitude on mobile
+            baseColor: 0x3f99ff
+          });
+          setVantaEffect(effect);
+        }
+      } catch (err) {
+        console.error("Vanta initialization failed:", err);
+      }
+    };
+
+    initVanta();
+
+    return () => {
+      if (vantaEffect) vantaEffect.destroy();
+    };
+  }, [vantaEffect]);
+
+  // Handle window resize to re-init Vanta with new sizes
+  useEffect(() => {
+    const handleResize = () => {
+      if (vantaEffect) {
+        vantaEffect.destroy();
+        setVantaEffect(null);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [vantaEffect]);
 
   return (
     <section className={styles.heroSection}>
+      {/* Vanta.js Background Layer */}
+      <div id="vanta-bg" ref={vantaRef} className={styles.vantaBg}></div>
+
+      {/* Static Background Image HIDDEN for debugging Vanta */}
+      {/* 
+      <div className={styles.heroBg}>
+        <div className={styles.bgOverlay}></div>
+      </div>
+      */}
+      
       <div className={styles.container}>
         {/* Main Content */}
         <div className={styles.content}>
@@ -28,65 +114,32 @@ export default function Hero() {
           </div>
 
           <div className={styles.bottomRow}>
-            {/* Left Side: Circular Button and Description */}
+            {/* CTA and Description */}
             <div className={styles.descWrapper}>
+              <div className={styles.buttonAndText}>
+                <a href="#contact" className={`${styles.ctaButton} ${poppins.className}`}>
+                  {t("hero_cta")}
+                  <span className={styles.ctaArrow}>→</span>
+                </a>
+                <p className={`${styles.description} ${poppins.className}`}>
+                  {t("hero_desc")}
+                </p>
+              </div>
               <CircularButton 
                 size={180} 
                 className={styles.heroButton}
               />
-              <p className={`${styles.description} ${poppins.className}`}>
-                {t("hero_desc")}
-              </p>
             </div>
-            
-            {/* Background elements would go here */}
           </div>
-        </div>
-
-        {/* Space between Hero content and Marquees */}
-        <div className={styles.heroSpacer}></div>
-
-        {/* Floating Social Sidebar (Simplified) */}
-        <div className={styles.socialSidebar}>
-           <span className={styles.followText}>{t("hero_follow")}</span>
-           <div className={styles.socialLine}></div>
-           <div className={styles.socialIcons}>
-              <span>FB</span>
-              <span>IG</span>
-              <span>YT</span>
-           </div>
         </div>
       </div>
 
-      {/* 3 Infinite Marquee Bars (Slanted Cross Effect) */}
-      <div className={styles.marqueeWrapper}>
-        <Marquee 
-          text={t("hero_m1") as any}
-          direction="left"
-          speed="25s"
-          bgColor="#29a5c0"
-          textColor="#000000"
-          fontSize="1.5rem"
-          className={styles.rotate30}
-        />
-        <Marquee 
-          text={t("hero_m2") as any}
-          direction="right"
-          speed="35s"
-          bgColor="#ffffff"
-          textColor="#000000"
-          fontSize="1.5rem"
-          className={styles.marqueeNormal}
-        />
-        <Marquee 
-          text={t("hero_m3") as any}
-          direction="left"
-          speed="20s"
-          bgColor="linear-gradient(90deg, #8a2be2, #ff007f)"
-          textColor="#ffffff"
-          fontSize="1.5rem"
-          className={styles.rotate60}
-        />
+      {/* Scroll Indicator */}
+      <div className={styles.scrollIndicator}>
+        <div className={styles.mouse}>
+          <div className={styles.wheel}></div>
+        </div>
+        <span className={styles.scrollText}>Scroll</span>
       </div>
     </section>
   );
